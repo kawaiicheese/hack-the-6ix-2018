@@ -221,12 +221,11 @@ document.addEventListener('DOMContentLoaded', function () {
   function generateElement(id, title, color, width, height) {
     console.log("hi")
     var itemElem = document.createElement('div');
-    var classNames = 'item h' + height + ' w' + width + ' ' + color;
+    var classNames = 'item h' + 5 + ' w' + 6 + ' ' + 240;
     var itemTemplate = '' +
-        '<div class="' + classNames + '" data-id="' + id + '" data-color="' + color + '" data-title="' + title + '">' +
+        '<div class="' + classNames + '" data-id="' + id + '" data-color="' + 240 + '" data-title="' + title + '">' +
           '<div class="item-content">' +
             '<div class="card" style="background-color:orange;">' +
-
               '<div class="card-id">' + id + '</div>' +
               '<div class="card-title">' + title + '</div>' +
               '<div class="card-remove"><i class="material-icons">&#xE5CD;</i></div>' +
