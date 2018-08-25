@@ -219,13 +219,12 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function generateElement(id, title, color, width, height) {
-    console.log("hi")
     var itemElem = document.createElement('div');
-    var classNames = 'item h' + 5 + ' w' + 6 + ' ' + 240;
+    var classNames = 'item h' + 10 + ' w' + 10 + ' ' + 240;
     var itemTemplate = '' +
         '<div class="' + classNames + '" data-id="' + id + '" data-color="' + 240 + '" data-title="' + title + '">' +
           '<div class="item-content">' +
-            '<div class="card" style="background-color:orange;">' +
+            '<div class="card" style="background-image:url(https://i.imgur.com/nhva7tO.jpg); background-size: cover;">' +
               '<div class="card-id">' + id + '</div>' +
               '<div class="card-title">' + title + '</div>' +
               '<div class="card-remove"><i class="material-icons">&#xE5CD;</i></div>' +
