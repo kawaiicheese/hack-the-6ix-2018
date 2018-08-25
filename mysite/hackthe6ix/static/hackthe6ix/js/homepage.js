@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function generateElement(id, title, color, width, height) {
     var itemElem = document.createElement('div');
-    var classNames = 'item h' + 10 + ' w' + 10 + ' ' + 240;
+    var classNames = 'item h' + 200 + ' w' + 200 + ' ' + 240;
     var itemTemplate = '' +
         '<div class="' + classNames + '" data-id="' + id + '" data-color="' + 240 + '" data-title="' + title + '">' +
           '<div class="item-content">' +
@@ -330,4 +330,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
   initDemo();
 
+});
+
+var landlord = true;
+
+$(document).ready(function(){
+     function toggle() {
+      landlord = !landlord;
+      if (landlord)
+      {
+        document.getElementById('dummy').innerHTML = '<span>List of Tenants</span>';
+      }
+      else
+      {
+        document.getElementById('dummy').innerHTML = '<span>List of Landlords</span>';
+      }
+     }
+
+     $('#toggle').on('click',toggle);
 });

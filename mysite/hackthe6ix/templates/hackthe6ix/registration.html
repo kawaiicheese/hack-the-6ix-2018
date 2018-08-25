@@ -89,6 +89,15 @@
 												</div>
 										</md-input-container>
 								</div>
+                                <div layout="row" layout-sm="column">
+                    <md-input-container flex-gt-sm="">
+                        <label>Profile Picture</label>
+                        <input required type="imgurlink" name="profilepic" ng-model="user.profilepic" placeholder="https://i.imgur.com/nhva7tO.jpg" />
+                        <div ng-if="userForm.profilepic.$dirty" ng-messages="userForm.profilepic.$error" role="alert">
+                            <div ng-message="required" class="my-message">Email Address is Required.</div>
+                        </div>
+                    </md-input-container>
+                </div>
 								<md-button class="md-raised md-primary" style="width:100%; margin: 0px 0px;" type="submit" ng-disabled="userForm.$invalid" name="submit">Submit</md-button>
 								<!--<md-button class="md-raised md-primary" ng-href="https://codepen.io/faizanrupani/pen/QjzMJp" target="_blank" style="width:100%; margin: 15px 0px 0px 0px;">Code Pen Login Form</md-button>-->
 						</form>
