@@ -5,6 +5,7 @@ from .models import Person
 
 # Create your views here.
 def index(request):	
+	return render(request, 'hackthe6ix/profile.html')
 	try:
 		if Person.objects.get(email=request.POST['username'],password=request.POST['pass']) :
 			i = 0
