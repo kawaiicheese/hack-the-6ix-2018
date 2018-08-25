@@ -21,8 +21,8 @@ class User(models.Model):
     email = models.CharField(max_length=50)
     password = models.CharField(max_length=30)
 
-class Landlord(models.Model):
-    pId = models.ForeignKey(Person, on_delete=models.CASCADE)
+# class Landlord(models.Model):
+    # pId = models.ForeignKey(Person, on_delete=models.CASCADE)
 
-class Tenants(models.Model):
-    pId = models.ForeignKey(Person, on_delete=models.CASCADE)
+# class Tenants(models.Model):
+    # pId = models.ForeignKey(Person, on_delete=models.CASCADE)
