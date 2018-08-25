@@ -19,18 +19,10 @@ class Person(models.Model):
     gender = models.BooleanField()
     profilepic = models.CharField(max_length=70, default="dummy")
 
-
-<<<<<<< HEAD
-# class Landlord(models.Model):
-    # pId = models.ForeignKey(Person, on_delete=models.CASCADE)
-
-# class Tenants(models.Model):
-=======
 class Landlord(models.Model):
 	pass
     # pId = models.ForeignKey(Person, on_delete=models.CASCADE)
 
 class Tenants(models.Model):
 	pass
->>>>>>> 64929b05aee052fb538614d35b5f968163dc9ec6
     # pId = models.ForeignKey(Person, on_delete=models.CASCADE)
