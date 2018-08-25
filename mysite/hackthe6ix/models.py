@@ -11,18 +11,26 @@ class Listings(models.Model):
 
 class Person(models.Model):
     id = models.AutoField(primary_key=True)
+    email = models.CharField(max_length=50, default="dummy")
+    password = models.CharField(max_length=30, default="dummy")
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     age = models.IntegerField()
     gender = models.BooleanField()
+    profilepic = models.CharField(max_length=70, default="dummy")
 
-class User(models.Model):
-    id = models.AutoField(primary_key=True)
-    email = models.CharField(max_length=50)
-    password = models.CharField(max_length=30)
 
+<<<<<<< HEAD
 # class Landlord(models.Model):
     # pId = models.ForeignKey(Person, on_delete=models.CASCADE)
 
 # class Tenants(models.Model):
+=======
+class Landlord(models.Model):
+	pass
+    # pId = models.ForeignKey(Person, on_delete=models.CASCADE)
+
+class Tenants(models.Model):
+	pass
+>>>>>>> 64929b05aee052fb538614d35b5f968163dc9ec6
     # pId = models.ForeignKey(Person, on_delete=models.CASCADE)
