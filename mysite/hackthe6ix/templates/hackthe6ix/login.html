@@ -33,14 +33,13 @@
 	
 	<div class="container-login100" style="background-image: url('../../static/hackthe6ix/images/housing.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
-			<form class="login100-form validate-form">
-				{% csrf_token %}
+			<form class="login100-form validate-form" action="{% url 'hackthe6ix:login' %}" method="GET">
 				<span class="login100-form-title p-b-37">
 					Sign In
 				</span>
 
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
-					<input class="input100" type="text" name="username" placeholder="username">
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter email">
+					<input class="input100" type="text" name="username" placeholder="email">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -88,21 +87,22 @@
 	<div id="dropDownSelect1"></div>
 	
 <!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="{% static 'hackthe6ix/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
 <!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<script src="{% static 'hackthe6ix/vendor/animsition/js/animsition.min.js' %}"></script>
 <!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="{% static 'hackthe6ix/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'hackthe6ix/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
 <!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
+	<script src="{% static 'hackthe6ix/vendor/select2/select2.min.js' %}"></script>
 <!--===============================================================================================-->
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="{% static 'hackthe6ix/vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'hackthe6ix/vendor/daterangepicker/daterangepicker.js' %}"></script>
 <!--===============================================================================================-->
-	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<script src="{% static 'hackthe6ix/vendor/countdowntime/countdowntime.js' %}"></script>
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
+	<script src="{% static 'hackthe6ix/js/main.js' %}"></script>
+	<script src="{% static 'hackthe6ix/js/login.js' %}"></script>
 
 </body>
 </html>

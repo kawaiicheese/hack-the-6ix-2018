@@ -14,6 +14,10 @@ class Person(models.Model):
     age =           models.IntegerField()
     gender =        models.BooleanField()
 
+class User(models.Model):
+	email = models.CharField(max_length=50)
+	password = models.CharField(max_length=30)
+
 class Landlord(models.Model):
     pass
 

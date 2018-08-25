@@ -54,6 +54,10 @@
         }
     }
 
+    function openWindow() {
+        console.log("hi");
+    }
+
     function showValidate(input) {
         var thisAlert = $(input).parent();
 
