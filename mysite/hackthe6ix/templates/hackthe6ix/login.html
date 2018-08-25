@@ -72,10 +72,10 @@
 				</div>
 			-->
 
-				<div class="text-center ">
-					<a href="{% url 'hackthe6ix:register' %}" class="txt2 hov1">
-						Sign Up
-					</a>
+				<div class="text-center" id="dialog_trigger">
+					<a class="iframe" href="{% url 'hackthe6ix:register' %}" class="txt2 hov1" id="dummy">
+							Sign Up
+					</a>	
 				</div>
 			</form>
 
@@ -88,7 +88,7 @@
 	<div id="dropDownSelect1"></div>
 	
 <!--===============================================================================================-->
-	<script src="{% static 'hackthe6ix/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+	<!--<script src="{% static 'hackthe6ix/vendor/jquery/jquery-3.2.1.min.js' %}"></script>-->
 <!--===============================================================================================-->
 	<script src="{% static 'hackthe6ix/vendor/animsition/js/animsition.min.js' %}"></script>
 <!--===============================================================================================-->
@@ -104,6 +104,23 @@
 <!--===============================================================================================-->
 	<script src="{% static 'hackthe6ix/js/main.js' %}"></script>
 	<script src="{% static 'hackthe6ix/js/login.js' %}"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="{% static 'hackthe6ix/js/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.pack.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'hackthe6ix/js/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css' %}" type="text/css" media="screen" />
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+	/* This is basic - uses default settings */
+	
+	$("a#dummy").fancybox({
+		'width':615,
+		'height':800
+	});
+	
+});
+	</script>
 
 </body>
 </html>
