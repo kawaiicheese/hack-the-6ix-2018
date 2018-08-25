@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var grid = null;
   var docElem = document.documentElement;
+  var popup = document.querySelector('#test-popup');
   var demo = document.querySelector('.grid-demo');
   var gridElement = demo.querySelector('.grid');
   var filterField = demo.querySelector('.filter-field');
@@ -60,9 +61,12 @@ document.addEventListener('DOMContentLoaded', function () {
     addItemsElement.addEventListener('click', addItems);
     gridElement.addEventListener('click', function (e) {
       if (elementMatches(e.target, '.card-remove, .card-remove i')) {
-        removeItem(e);
+        displayInfo(e);
       }
     });
+
+
+
 
   }
 
@@ -180,6 +184,18 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }});
     updateIndices();
+
+  }
+
+  function displayInfo(e) {
+    var elem = elementClosest(e.target, '.item');
+    console.log("i wanna display");
+    var popup = document.getElementById("popup1");
+
+  
+    $(popup).show();
+
+
 
   }
 
