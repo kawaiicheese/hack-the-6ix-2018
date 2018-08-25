@@ -6,7 +6,7 @@ from .models import Person, User
 # Create your views here.
 def index(request):	
 	try:
-		if User.objects.get(email=request.GET['username'],password=request.GET['pass']) :
+		if User.objects.get(email=request.POST['username'],password=request.POST['pass']) :
 			return render(request, 'hackthe6ix/index.html')
 	except Exception:
 		print("exception")
