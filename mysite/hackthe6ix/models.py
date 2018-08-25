@@ -8,11 +8,15 @@ class Listings(models.Model):
     price =         models.DecimalField(max_digits=5, decimal_places=2)
     lease_length =  models.PositiveIntegerField()
 
-class Landlords(models.Model):
+class Person(models.Model):
     first_name =    models.CharField(max_length=30)
     last_name =     models.CharField(max_length=30)
+    age =           models.IntegerField()
+    gender =        models.BooleanField()
+
+class Landlord(models.Model):
+    pass
 
 class Tenants(models.Model):
-    first_name =    models.CharField(max_length=30)
-    last_name =     models.CharField(max_length=30)
+    pass
     
