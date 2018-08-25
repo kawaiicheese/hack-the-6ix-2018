@@ -336,13 +336,12 @@
 
   function generateElement(id, title, color, width, height, image) {
     var itemElem = document.createElement('div');
-    var classNames = 'item h' + 10 + ' w' + 10 + ' ' + 240;
+    var classNames = 'item h' + 2 + ' w' + 2 + ' ' + 240;
     var itemTemplate = '' +
         '<div class="' + classNames + '" data-id="' + id + '" data-color="' + 240 + '" data-title="' + title + '">' +
           '<div class="item-content">' +
             '<div class="card" style="background-image:url(' + image + '); background-size: cover;">' +
               '<div class="card-id">' + id + '</div>' +
-              '<div class="card-title">' + title + '</div>' +
               '<div class="card-remove"><i class="material-icons">&#xE5CD;</i></div>' +
             '</div>' +
           '</div>' +
