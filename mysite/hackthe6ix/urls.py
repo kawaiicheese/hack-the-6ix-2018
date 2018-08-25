@@ -5,4 +5,5 @@ from . import views
 app_name = 'hackthe6ix'
 urlpatterns = [
     path('', views.index, name='index'),
+    path('map.html', views.map, name='map')
 ]
