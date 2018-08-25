@@ -315,3 +315,21 @@ document.addEventListener('DOMContentLoaded', function () {
   initDemo();
 
 });
+
+var landlord = true;
+
+$(document).ready(function(){
+     function toggle() {
+      landlord = !landlord;
+      if (landlord)
+      {
+        document.getElementById('dummy').innerHTML = '<span>List of Tenants</span>';
+      }
+      else
+      {
+        document.getElementById('dummy').innerHTML = '<span>List of Landlords</span>';
+      }
+     }
+
+     $('#toggle').on('click',toggle);
+});

@@ -558,3 +558,114 @@ section h4 {
   margin-right: 10px;
   font-size: 24px;
 }
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  background: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  perspective: 200px;
+}
+
+#toggle {
+  position: absolute;
+  top: -100px;
+  visibility: hidden;
+}
+
+@keyframes on {
+  0%, 50%, 100% {
+    transform: rotatey(0);
+  }
+  70% {
+    transform: rotateY(8deg);
+  }
+  85% {
+    transform: rotateY(-4deg);
+  }
+  95% {
+    transform: rotateY(2deg);
+  }
+}
+@keyframes off {
+  0%, 50%, 100% {
+    transform: rotatey(0);
+  }
+  70% {
+    transform: rotateY(-8deg);
+  }
+  85% {
+    transform: rotateY(4deg);
+  }
+  95% {
+    transform: rotateY(-2deg);
+  }
+}
+
+label {
+  animation: off 1s;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 80px;
+  box-shadow: 0 0 0 6px #fff;
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  height: 60px;
+  left: 50%;
+  margin: -30px 0 0 -80px;
+  position: absolute;
+  perspective: 200px;
+  top: 50%;
+  width: 160px;
+}
+label:before,
+label:after {
+  backface-visibility: hidden;
+  background: #fff;
+  box-shadow: 0 0 0 2px #fff;
+  color: #4520a6;
+  display: block;
+  height: 100%;
+  line-height: 60px;
+  position: absolute;
+  text-align: center;
+  transform-style: preserve-3d;
+  transition: all .5s cubic-bezier(.72,.3,.84,.47);
+  width: 50%;
+}
+label:before {
+  border-radius: 80px 0 0 80px;
+  content: "LANDLORD";
+  transform-origin: 100% 50%;
+  transform: rotateY(0deg);
+}
+label:after {
+  border-radius: 0 80px 80px 0;
+  content: "TENANT";
+  right: 0;
+  transform-origin: 0 50%;
+  transform: rotateY(-180deg);
+}
+
+#toggle:checked + label {
+  animation: on 1s;
+}
+#toggle:checked + label:before {
+  transform: rotateY(180deg);
+}
+#toggle:checked + label:after {
+  transform: rotateY(0deg);
+}
+
+.togglebutton
+{
+  position: absolute;
+  top: 0px;
+  right:150px;
+
+}
