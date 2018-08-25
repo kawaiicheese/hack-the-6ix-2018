@@ -30,3 +30,6 @@ def verify(request):
 	user.save()
 	person.save()
 	return render(request, 'hackthe6ix/verify.html')
+
+def map(request):
+	return render(request, 'hackthe6ix/map.html')
