@@ -3,11 +3,12 @@ from django.db import models
 # Create your models here.
 class Listings(models.Model):
     id = models.AutoField(primary_key=True)
-    street_name = models.CharField(max_length=30)
-    house_number = models.PositiveIntegerField()
-    #full_location = house_number + street_name
-    price = models.DecimalField(max_digits=5, decimal_places=2)
-    lease_length = models.PositiveIntegerField()
+    address = models.CharField(max_length=30)
+    price = models.IntegerField()
+    gender = models.CharField(max_length=10, default="dummy")
+    lease = models.PositiveIntegerField()
+    phone = models.CharField(max_length=20, default="dummy")
+    propertypic = models.CharField(max_length=70, default="dummy")
 
 class Person(models.Model):
     id = models.AutoField(primary_key=True)
@@ -16,7 +17,7 @@ class Person(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     age = models.IntegerField()
-    gender = models.BooleanField()
+    gender = models.CharField(max_length=10, default="dummy")
     profilepic = models.CharField(max_length=70, default="dummy")
 
 class Landlord(models.Model):

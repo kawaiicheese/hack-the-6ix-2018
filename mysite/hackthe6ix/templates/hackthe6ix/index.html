@@ -17,13 +17,14 @@
 </head>
 
 <body>
-
+	<!--
 	<div class="togglebutton">
 		<input type="checkbox" id="toggle" name="toggle" onclick="toggle()"/>
 		<label for="toggle"></label>
 	</div>
+-->
   <section class="grid-demo">
-	<h2 class="section-title" id="dummy"><span>List of Tenants</span></h2>
+	<h2 class="section-title" id="dummy"><span>List of Landlords</span></h2>
 	<div class="controls cf">
 		<div class="control search">
 			<div class="control-icon">
@@ -79,7 +80,9 @@
 	</div>
 	<div class="grid"></div>
 	<div class="grid-footer">
-		<button class="add-more-items btn btn-primary"><i class="material-icons">&#xE145;</i>Add more items</button>
+		<a id="listform" class="iframe" href="{% url 'hackthe6ix:listform' %}">
+			<button class="add-more-items btn btn-primary"><i class="material-icons">&#xE145;</i>Add more items</button>
+	    </a>
 	</div>
 </section>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
@@ -432,20 +435,6 @@
 
 });
 
-var landlord = true;
-
-     function toggle() {
-      landlord = !landlord;
-      if (landlord)
-      {
-        document.getElementById('dummy').innerHTML = '<span>List of Tenants</span>';
-      }
-      else
-      {
-        document.getElementById('dummy').innerHTML = '<span>List of Landlords</span>';
-      }
-     }
-
     </script>
       		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
@@ -458,6 +447,13 @@ var landlord = true;
 	/* This is basic - uses default settings */
 	
 	$("a#dummy2").fancybox({
+		'width':555,
+		'height':500,
+		'showCloseButton': false
+	});
+
+
+	$("a#listform").fancybox({
 		'width':555,
 		'height':500,
 		'showCloseButton': false

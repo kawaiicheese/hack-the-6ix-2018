@@ -9,5 +9,6 @@ urlpatterns = [
     path('login/', views.index, name="login"),
     path('verify/', views.verify, name="verify"),
     path('profile/', views.profile, name="profile"),
+    path('listform/', views.listform, name='listform'),
     path('map.html', views.map, name='map'),
 ]

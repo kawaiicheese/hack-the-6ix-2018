@@ -48,18 +48,23 @@
 								</div>
 								<div layout="row" layout-sm="column">
 										<p style="font-size: 12px; margin-left: 3px; margin-top: 18px;">Gender: </p>
-										<input type="hidden" name="gender" value="{{user.gender}}" />
-										<md-radio-group style="margin: 12px 0 19px;" ng-model="user.gender" required>
-												<md-radio-button name="gender" value="Male" class="md-primary">Male</md-radio-button>
-												<md-radio-button name="gender" value="Female">Female</md-radio-button>
-										</md-radio-group>
+                   <div layout="row" layout-sm="column">
+                    <md-input-container   flex-gt-sm="">
+                        <input required type="gender" name="gender" ng-model="user.gender" placeholder="M/F" />
+                        <div ng-if="userForm.gender.$dirty" ng-messages="userForm.gender.$error" role="alert">
+                            <div ng-message="required" class="my-message">Gender is Required.</div>
+                            <div ng-message="pattern" class="my-message">Enter Correct Gender. </div>
+                            <div ng-message="gender" class="my-message">Enter Correct Gender. </div>
+                        </div>
+                    </md-input-container>
+                </div>
 										<md-input-container flex-gt-sm="60">
 												<label>Age</label>
 												<input required type="number" step="any" name="age" ng-model="user.age" min="13" max="100" placeholder="20" />
 										</md-input-container>
 								</div>
 								<div layout="row" layout-sm="column">
-										<md-input-container flex-gt-sm="">
+										<md-input-container   flex-gt-sm="">
 												<label>Email</label>
 												<input required type="email" name="email" ng-model="user.email" ng-pattern="/^[_a-z0-9-+]+(\.[_a-z0-9-+]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" placeholder="someone@example.com" />
 												<div ng-if="userForm.email.$dirty" ng-messages="userForm.email.$error" role="alert">
@@ -98,7 +103,7 @@
                         </div>
                     </md-input-container>
                 </div>
-								<md-button class="md-raised md-primary" style="width:100%; margin: 0px 0px;" type="submit" ng-disabled="userForm.$invalid" name="submit">Submit</md-button>
+								<md-button class="md-raised md-primary" style="width:100%; margin: 0px 0px;" type="submit" ng-disabled="userForm.$invalid" name="submit" onclick="closeIFrame()">Submit</md-button>
 								<!--<md-button class="md-raised md-primary" ng-href="https://codepen.io/faizanrupani/pen/QjzMJp" target="_blank" style="width:100%; margin: 15px 0px 0px 0px;">Code Pen Login Form</md-button>-->
 						</form>
 				</div>
@@ -112,7 +117,12 @@
 <script src='https://cdn.gitcdn.xyz/cdn/angular/bower-material/v1.0.0-rc3/angular-material.js'></script>
 <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/assets-cache.js'></script>
 <script  src="{% static 'hackthe6ix/js/index.js'%}"></script>
-
+<script src="{% static 'hackthe6ix/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<script type="text/javascript">
+  function closeIFrame() {
+    parent.$.fancybox.close();
+  }
+</script>
 
 
 

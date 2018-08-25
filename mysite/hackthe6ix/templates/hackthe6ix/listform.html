@@ -1,0 +1,121 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+  
+      <link rel='stylesheet' href='https://cdn.gitcdn.xyz/cdn/angular/bower-material/v1.0.0-rc3/angular-material.css'>
+    <link rel='stylesheet' href='http://localhost:8080/docs.css'>
+
+      <link rel="stylesheet" href="{% static 'hackthe6ix/css/style.css' %}">
+
+  
+</head>
+
+<body>
+
+  <div ng-controller="DemoCtrl" ng-cloak="" class="md-inline-form" ng-app="MyApp" layout="column" layout-sm="row" layout-align="center center" layout-align-sm="start start" layout-fill>
+		<md-content id="SignupContent" class="md-whiteframe-10dp" flex-sm>
+				<md-toolbar flex id="materialToolbar">
+						<div class="md-toolbar-tools"> <span flex=""></span> <span class="md-headline" align="center">Sell Residence</span> <span flex=""></span> </div>
+				</md-toolbar>
+				<div layout-padding="">
+						<div></div>
+						<form name="userForm" method="POST" action="{% url 'hackthe6ix:index' %}" ng-submit="user.submit(userForm.$valid)" enctype="multipart/form-data">
+                {% csrf_token %}
+								<input type="hidden" name="action" value="signup" />
+								<div layout="row" layout-sm="column">
+										<md-input-container flex-gt-sm="">
+												<label>Address</label>
+												<input ng-model="user.address" name="address" required type="text" placeholder="Your Address">
+												<div ng-if="userForm.address.$dirty" ng-messages="userForm.address.$error" role="alert">
+														<div ng-message="required" class="my-message">Address is Required.</div>
+														<div ng-message="pattern" class="my-message">Enter correct Address.</div>
+												</div>
+										</md-input-container>
+								</div>
+								<div layout="row" layout-sm="column">
+									<p style="font-size: 12px; margin-left: 3px; margin-top: 18px;">Gender: </p>
+				                   <div layout="row" layout-sm="column">
+				                    <md-input-container   flex-gt-sm="">
+				                        <input required type="gender" name="gender" ng-model="user.gender" placeholder="M/F" />
+				                        <div ng-if="userForm.gender.$dirty" ng-messages="userForm.gender.$error" role="alert">
+				                            <div ng-message="required" class="my-message">Gender is Required.</div>
+				                            <div ng-message="pattern" class="my-message">Enter Correct Gender. </div>
+				                            <div ng-message="gender" class="my-message">Enter Correct Gender. </div>
+				                        </div>
+				                    </md-input-container>
+				                </div>
+								<div layout="row" layout-sm="column">
+										<md-input-container flex-gt-sm="">
+												<label>Phone Number</label>
+												<input required type="phone" name="phone" ng-model="user.phone" placeholder="647-234-1234" />
+												<div ng-if="userForm.phone.$dirty" ng-messages="userForm.phone.$error" role="alert">
+														<div ng-message="required" class="my-message">Phone Number is Required.</div>
+														<div ng-message="pattern" class="my-message">Enter Correct Phone Number. </div>
+														<div ng-message="phone" class="my-message">Enter Correct Phone Number. </div>
+												</div>
+										</md-input-container>
+								</div>
+								<div layout="row" layout-sm="column">
+										<md-input-container flex-gt-sm="">
+												<label>Price / Month</label>
+												<input required type="price" name="price" ng-model="user.price" placeholder="600" />
+												<div ng-if="userForm.price.$dirty" ng-messages="userForm.price.$error" role="alert">
+														<div ng-message="required" class="my-message">Price is Required.</div>
+														<div ng-message="pattern" class="my-message">Enter Correct Price. </div>
+														<div ng-message="price" class="my-message">Enter Correct Price. </div>
+												</div>
+										</md-input-container>
+								</div>
+								<div layout="row" layout-sm="column">
+										<md-input-container flex-gt-sm="">
+												<label>Lease Length (Months)</label>
+												<input required type="lease" name="lease" ng-model="user.lease" placeholder="4" />
+												<div ng-if="userForm.lease.$dirty" ng-messages="userForm.lease.$error" role="alert">
+														<div ng-message="required" class="my-message">Lease Length is Required.</div>
+														<div ng-message="pattern" class="my-message">Enter Correct Lease Length. </div>
+														<div ng-message="lease" class="my-message">Enter Correct Lease Length. </div>
+												</div>
+										</md-input-container>
+								</div>
+                                <div layout="row" layout-sm="column">
+                    <md-input-container flex-gt-sm="">
+                        <label>Property Picture</label>
+                        <input required type="imgurlink" name="propertypic" ng-model="user.propertypic" placeholder="https://i.imgur.com/nhva7tO.jpg" />
+                        <div ng-if="userForm.propertypic.$dirty" ng-messages="userForm.propertypic.$error" role="alert">
+                            <div ng-message="required" class="my-message">Property Picture is Required.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+								<md-button class="md-raised md-primary" style="width:100%; margin: 0px 0px;" type="submit" ng-disabled="userForm.$invalid" name="submit" onclick="closeIFrame()">Post</md-button>
+								<!--<md-button class="md-raised md-primary" ng-href="https://codepen.io/faizanrupani/pen/QjzMJp" target="_blank" style="width:100%; margin: 15px 0px 0px 0px;">Code Pen Login Form</md-button>-->
+						</form>
+				</div>
+		</md-content>
+</div>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-aria.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-messages.min.js'></script>
+<script src='https://cdn.gitcdn.xyz/cdn/angular/bower-material/v1.0.0-rc3/angular-material.js'></script>
+<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/assets-cache.js'></script>
+<script  src="{% static 'hackthe6ix/js/index.js'%}"></script>
+<script src="{% static 'hackthe6ix/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<script type="text/javascript">
+	function closeIFrame() {
+		parent.$.fancybox.close();
+	}
+</script>
+
+
+
+
+</body>
+
+</html>
