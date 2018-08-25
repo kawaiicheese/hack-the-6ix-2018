@@ -17,8 +17,9 @@ class Person(models.Model):
     gender = models.BooleanField()
 
 class User(models.Model):
-	email = models.CharField(max_length=50)
-	password = models.CharField(max_length=30)
+    id = models.AutoField(primary_key=True)
+    email = models.CharField(max_length=50)
+    password = models.CharField(max_length=30)
 
 class Landlord(models.Model):
     pId = models.ForeignKey(Person, on_delete=models.CASCADE)
