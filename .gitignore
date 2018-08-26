@@ -88,6 +88,7 @@ local_settings.py
 .env
 db.sqlite3
 
-
 # Sensitive Data
 mysite/hackthe6ix/KEYS.py
+
+mysite/hackthe6ix/keys

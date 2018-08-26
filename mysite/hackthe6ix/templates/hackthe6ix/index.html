@@ -17,6 +17,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 	<div class="popup" id="popup1">
 			<p>This is a popup!</p>
 			<p>Overlay uses <b>box-shadow</b>.</p>
@@ -28,12 +29,16 @@
 			$('#popup1').hide();
 		</script>
 
+=======
+	<!--
+>>>>>>> 903f47ac56e7a76147294bfa17b57abd69a1f44a
 	<div class="togglebutton">
-		<input type="checkbox" id="toggle" name="toggle"/>
+		<input type="checkbox" id="toggle" name="toggle" onclick="toggle()"/>
 		<label for="toggle"></label>
 	</div>
+-->
   <section class="grid-demo">
-	<h2 class="section-title" id="dummy"><span>List of Tenants</span></h2>
+	<h2 class="section-title" id="dummy"><span>List of Landlords</span></h2>
 	<div class="controls cf">
 		<div class="control search">
 			<div class="control-icon">
@@ -63,9 +68,9 @@
 				<i class="material-icons">&#xE313;</i>
 			</div>
 			<select class="control-field sort-field form-control">
-            <option value="order" selected>Drag</option>
+			<option value="color" selected>Color (drag disabled)</option>
+            <option value="order">Drag</option>
             <option value="title">Title (drag disabled)</option>
-            <option value="color">Color (drag disabled)</option>
           </select>
 		</div>
 		<div class="control layout">
@@ -89,7 +94,10 @@
 	</div>
 	<div class="grid"></div>
 	<div class="grid-footer">
-		<button class="add-more-items btn btn-primary"><i class="material-icons">&#xE145;</i>Add more items</button>
+		<a id="listform" class="iframe" href="{% url 'hackthe6ix:listform' %}">
+			<button class="btn btn-primary additem"><i class="material-icons">&#xE145;</i>Add more items</button>
+			<!--<button id="additem" class="add-more-items" style="display:none"> </button>-->
+	    </a>
 	</div>
 </section>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
@@ -97,9 +105,8 @@
 <script src='https://my.interserver.net/lib/hammerjs/hammer.min.js'></script>
 <script src='https://my.interserver.net/lib/muuri/muuri.min.js'></script>
 
-  
+ 
   	<script src="{% static 'hackthe6ix/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
-
     <script>
     	document.addEventListener('DOMContentLoaded', function () {
   //
@@ -160,7 +167,7 @@
   function initGrid() {
     var dragCounter = 0;
     grid = new Muuri(gridElement, {
-      items: generateElements({{ arrLength }}),
+      items: generateElements(1),
       layoutDuration: 400,
       layoutEasing: 'ease',
       dragEnabled: true,
@@ -278,22 +285,30 @@
   //
   function generateElements(amount) {
     var ret = [];
+<<<<<<< HEAD
 	{% for image in imgurLink %}
 	  var image = "{{ image }}";
+=======
+    var data = {{ data|safe }};
+    for(var i =0; i < data.length; i++) {
+	  var temp = data[i];
+	  console.log(temp['propertypic']);
+>>>>>>> 903f47ac56e7a76147294bfa17b57abd69a1f44a
       ret.push(generateElement(
         ++uuid,
         generateRandomWord(2),
         getRandomItem(filterOptions),
         getRandomInt(1, 2),
         getRandomInt(1, 2),
-        image
+        temp['propertypic']
       ));
-    {% endfor %}
+    }
     
     return ret;
   }
   function generateElementsCreate(amount) {
     var ret = [];
+<<<<<<< HEAD
 	{% for image in "{{imgurLink}}" %}
       ret.push(generateElement(
         ++uuid,
@@ -306,6 +321,9 @@
     {% endfor %}
     
     return ret;
+=======
+
+>>>>>>> 903f47ac56e7a76147294bfa17b57abd69a1f44a
   }
   function generateElement(id, title, color, width, height, image) {
     var itemElem = document.createElement('div');
@@ -313,10 +331,12 @@
     var itemTemplate = '' +
         '<div class="' + classNames + '" data-id="' + id + '" data-color="' + 240 + '" data-title="' + title + '">' +
           '<div class="item-content">' +
+            '<a id="dummy2" class="iframe" href="{% url 'hackthe6ix:profile' %}">' +
             '<div class="card" style="background-image:url(' + image + '); background-size: cover;">' +
               '<div class="card-id">' + id + '</div>' +
               '<div class="card-remove"><i class="material-icons">&#xE5CD;</i></div>' +
             '</div>' +
+            '</a>' +
           '</div>' +
         '</div>';
     itemElem.innerHTML = itemTemplate;
@@ -374,6 +394,7 @@
   //
   initDemo();
 });
+<<<<<<< HEAD
 var landlord = true;
 $(document).ready(function(){
      function toggle() {
@@ -389,7 +410,35 @@ $(document).ready(function(){
      }
      $('#toggle').on('click',toggle);
 });
+=======
+
+>>>>>>> 903f47ac56e7a76147294bfa17b57abd69a1f44a
     </script>
+      		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="{% static 'hackthe6ix/js/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.pack.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'hackthe6ix/js/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css' %}" type="text/css" media="screen" />
+	<script type="text/javascript">
+				$(document).ready(function() {
+
+	/* This is basic - uses default settings */
+	
+	$("a#dummy2").fancybox({
+		'width':555,
+		'height':500,
+		'showCloseButton': false
+	});
+
+
+	$("a#listform").fancybox({
+		'width':555,
+		'height':500,
+		'showCloseButton': false
+	});
+	
+});
+	</script>
 
 
 
