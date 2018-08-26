@@ -61,3 +61,7 @@ def profile(request):
 
 def listform(request):
 	return render(request, 'hackthe6ix/listform.html')
+	
+def heremap(request):
+	return render(request, 'hackthe6ix/heremap.html')
+	

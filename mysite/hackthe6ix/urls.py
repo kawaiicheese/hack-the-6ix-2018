@@ -11,4 +11,5 @@ urlpatterns = [
     path('profile/', views.profile, name="profile"),
     path('listform/', views.listform, name='listform'),
     path('map.html', views.map, name='map'),
+    path('heremap.html', views.heremap, name='heremap'),
 ]
