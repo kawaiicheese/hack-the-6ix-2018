@@ -2,29 +2,37 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import Person, Listings
+from .listing import getList
+
+userUID = 0
+loggedIn = False
 
 # Create your views here.
-def index(request):	
+def index(request):
 	try:
+		global userUID
+		global loggedIn
 		# when user logs in with correct password
-		if Person.objects.get(email=request.POST['username'],password=request.POST['pass']) :
-			i = 0
-			# for now, dont care about if correct photo matches correct person. just populate it
-			imgurLink = []
-			for person in Person.objects.all():
-				i += 1
-				imgurLink.append(person.profilepic)
-			return render(request, 'hackthe6ix/index.html', {'arrLength':i, 'imgurLink':imgurLink})
+		person = Person.objects.get(email=request.POST['username'],password=request.POST['pass'])
+		if person :
+			userUID = person.id
+			loggedIn = True
+			return render(request, 'hackthe6ix/index.html', {'data':getList()})
 	except Exception as e:
 		try:
 			# when seller submits a form.
-			listForm = Listings(address = request.POST['address'], gender = request.POST['gender'],
+			user = Person.objects.get(pk=userUID)
+			listForm = Listings.objects.create(person=user, address = request.POST['address'], gender = request.POST['gender'],
 								price = request.POST['price'], phone = request.POST['phone'],
-								propertypic = request.POST['propertypic'], lease = request.POST['lease'])
+								propertypic = request.POST['propertypic'], lease = request.POST['lease'], description=request.POST['description'])
 			listForm.save()
-			return render(request, 'hackthe6ix/index.html', {'arrLength':0, 'imgurLink':[]})
+
+			return render(request, 'hackthe6ix/index.html', {'data':getList()})
 		except Exception as e:
 			print(e)
+	if loggedIn:
+		return render(request, 'hackthe6ix/index.html', {'data':getList()})
+
 	return render(request, 'hackthe6ix/login.html')
 
 def registration(request):

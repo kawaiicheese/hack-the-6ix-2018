@@ -83,6 +83,14 @@
 												</div>
 										</md-input-container>
 								</div>
+																	<md-input-container flex-gt-sm="">
+												<label>Description</label>
+												<input ng-model="user.description" name="description" required type="text" placeholder="Description">
+												<div ng-if="userForm.description.$dirty" ng-messages="userForm.description.$error" role="alert">
+														<div ng-message="required" class="my-message">Description is Required.</div>
+														<div ng-message="pattern" class="my-message">Enter correct Description.</div>
+												</div>
+										</md-input-container>
                                 <div layout="row" layout-sm="column">
                     <md-input-container flex-gt-sm="">
                         <label>Property Picture</label>

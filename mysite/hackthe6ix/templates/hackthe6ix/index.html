@@ -81,7 +81,8 @@
 	<div class="grid"></div>
 	<div class="grid-footer">
 		<a id="listform" class="iframe" href="{% url 'hackthe6ix:listform' %}">
-			<button class="add-more-items btn btn-primary"><i class="material-icons">&#xE145;</i>Add more items</button>
+			<button class="btn btn-primary additem"><i class="material-icons">&#xE145;</i>Add more items</button>
+			<!--<button id="additem" class="add-more-items" style="display:none"> </button>-->
 	    </a>
 	</div>
 </section>
@@ -166,7 +167,7 @@
     var dragCounter = 0;
 
     grid = new Muuri(gridElement, {
-      items: generateElements({{ arrLength }}),
+      items: generateElements(1),
       layoutDuration: 400,
       layoutEasing: 'ease',
       dragEnabled: true,
@@ -298,18 +299,19 @@
   function generateElements(amount) {
 
     var ret = [];
-
-	{% for image in imgurLink %}
-	  var image = "{{ image }}";
+    var data = {{ data|safe }};
+    for(var i =0; i < data.length; i++) {
+	  var temp = data[i];
+	  console.log(temp['propertypic']);
       ret.push(generateElement(
         ++uuid,
         generateRandomWord(2),
         getRandomItem(filterOptions),
         getRandomInt(1, 2),
         getRandomInt(1, 2),
-        image
+        temp['propertypic']
       ));
-    {% endfor %}
+    }
     
 
     return ret;
@@ -319,20 +321,6 @@
   function generateElementsCreate(amount) {
 
     var ret = [];
-
-	{% for image in "{{imgurLink}}" %}
-      ret.push(generateElement(
-        ++uuid,
-        generateRandomWord(2),
-        getRandomItem(filterOptions),
-        getRandomInt(1, 2),
-        getRandomInt(1, 2),
-        image
-      ));
-    {% endfor %}
-    
-
-    return ret;
 
   }
 
