@@ -14,6 +14,4 @@ def sendTo(phoneNumber, sender, receiver):
         to="+16479093281", 
         from_="+16475034783",
         body="Hi! You have a notification from "+sender+".")
-
-sendTo(1, "Suhavi", 2)
     
